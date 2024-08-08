@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @NoArgsConstructor
 @Table(name = "tbl_member")
@@ -44,10 +43,11 @@ public class Member {
     private ImageFile imageFile;    // 프로필 사진
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;    // 회원 권한
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "login_type", nullable = false)
     private LoginType loginType;    // 로그인 타입
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false)
-    private Role role;    // 권한
 }

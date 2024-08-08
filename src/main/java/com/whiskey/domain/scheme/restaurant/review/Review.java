@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @Table(name = "tbl_review")
@@ -40,4 +41,9 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "reviewer_id", nullable = false)
     private Member reviewer;    // 리뷰 작성자
+
+    // TODO: 리뷰 좋아요
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "review_id")
+    private List<ReviewLike> likes; // 좋아요 리스트
 }
