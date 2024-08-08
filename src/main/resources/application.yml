@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://db.dokalab.site:3306/whiskeydb
+    username: test
+    password: test
+
+  jpa:
+    hibernate:
+      ddl-auto: create
